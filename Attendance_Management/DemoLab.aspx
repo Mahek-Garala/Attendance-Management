@@ -66,7 +66,7 @@
 
             <div class="form-group">
                 <label for="ddlPhase" class="form-label">Select Phase:</label>
-                <asp:DropDownList ID="ddlPhase" runat="server" CssClass="form-dropdown">
+                <asp:DropDownList ID="ddlPhase" runat="server" CssClass="form-dropdown" AutoPostBack="true" OnSelectedIndexChanged="ddlPhase_SelectedIndexChanged">
                     <asp:ListItem Text="Select Phase" Value="" />
                     <asp:ListItem Text="Phase 1" Value="1" />
                     <asp:ListItem Text="Phase 2" Value="2" />
