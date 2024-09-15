@@ -97,11 +97,12 @@ namespace Attendance_Management
                         };
                     }
                 }
-                Response.Redirect("Login_Student.aspx");
+                Response.Redirect("Login_student.aspx");
             }
             catch (Exception ex)
             {
-                Response.Write(ex);
+
+                Response.Write("you ar already exist");
             }
 
 

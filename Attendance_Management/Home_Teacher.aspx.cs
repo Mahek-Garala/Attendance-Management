@@ -16,10 +16,12 @@ namespace Attendance_Management
         {
             if (Session["tid"] != null)
             {
-                string str_tid = Session["tid"].ToString();
-                Int32 tid = Int32.Parse(str_tid);
+                //session mathi teacherId lidhu
+                Int32 tid = Int32.Parse(Session["tid"].ToString());
+                //session mathi department lidho teacher no 
                 string dep = Session["department"].ToString();
-                //Response.Write(dep);
+
+                
                 SqlConnection con = new SqlConnection();
                 con.ConnectionString = ConfigurationManager.ConnectionStrings["attendanceDatabase"].ConnectionString;
                 List<string> subjects = new List<string>();
@@ -54,6 +56,7 @@ namespace Attendance_Management
                             }
                             con.Close();
                         }
+                        //teacher jetla subject bhanave etla subjectId lidha 'sid' ma
                         string query2 = "SELECT subject_ID FROM Teaching WHERE teacher_ID = (@teacher_ID)";
                         using (SqlCommand cmd2 = new SqlCommand(query2))
                         {
@@ -70,6 +73,7 @@ namespace Attendance_Management
                                 }
                             }
                             reader2.Close();
+                            //'sid' ma hta ae id thru subject name lidha 'subjects' ma
                             foreach (int id in sid)
                             {
                                 string query3 = "SELECT subject_name FROM Subject WHERE subject_ID = (@subject_ID)";
@@ -90,6 +94,7 @@ namespace Attendance_Management
                                 }
                             }
                         }
+                        //'subjects' n show karavya
                         foreach (string name in subjects)
                         {
                             lblsubject.Text += name + "<br/>";

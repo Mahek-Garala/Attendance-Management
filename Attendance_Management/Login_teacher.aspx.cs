@@ -49,6 +49,7 @@ namespace Attendance_Management
 
                                 if (dateob == dob)
                                 {
+                                    //session ma teacherId n department add karyu
                                     Session["tid"] = tid;
                                     Session["department"] = department;
                                     Response.Redirect("Home_Teacher.aspx");

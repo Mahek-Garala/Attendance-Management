@@ -23,10 +23,10 @@ namespace Attendance_Management
 
         protected void btnAddSubject_Click(object sender, EventArgs e)
         {
-            //string subject = ddlSubject.Text;
+            //je subject select karyo hase te database ma update krse('teaching' table ma)
             string subject = ddlSubject.SelectedValue;
             Console.WriteLine(subject);
-            //Response.Write("Subject " + subject);
+
             SqlConnection con = new SqlConnection();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["attendanceDatabase"].ConnectionString;
             string query1 = "SELECT subject_ID  FROM Subject WHERE subject_name = (@sub_name)";
@@ -48,10 +48,9 @@ namespace Attendance_Management
                         }
 
                         con.Close();
-                        string str_tid = Session["tid"].ToString();
-                        Int32 tid = Int32.Parse(str_tid);
+                        Int32 tid = Int32.Parse(Session["tid"].ToString());
 
-
+                        //corner case : subject is already exist
                         string query3 = "SELECT * From Teaching Where subject_ID = (@sub_id) AND teacher_ID = (@teacher_id) ";
                         using(SqlCommand cmd3 = new SqlCommand(query3))
                         {
@@ -64,8 +63,6 @@ namespace Attendance_Management
                             {
                                 // Display an alert box with the message
                                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Subject is already added.');", true);
-
-                                // Close the reader and the connection
                                 reader1.Close();
                                 con.Close();
 
@@ -102,6 +99,7 @@ namespace Attendance_Management
 
         protected void ddlSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //semester select karse etle aema jetla subject avta hase te batavse
             ddlSubject.Items.Clear();
             ddlSubject.Items.Add(new ListItem("Select Subject", ""));
             int selectedSem = ddlSemester.SelectedIndex;

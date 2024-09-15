@@ -19,6 +19,7 @@ namespace Attendance_Management
         protected void SignupButton_Click(object sender, EventArgs e)
         {
             // Handle signup logic here
+            int id = Int32.Parse(idTextBox.Text.Trim());
             string name = nameTextBox.Text;
             string dob = dobTextBox.Text;
             string mobile = mobileTextBox.Text;
@@ -27,13 +28,14 @@ namespace Attendance_Management
 
             SqlConnection con = new SqlConnection();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["attendanceDatabase"].ConnectionString;
-            string query = "INSERT INTO Teacher (name, email, mobile, dob, department) VALUES(@name, @email_ID, @mobile, @dob, @department)";
+            string query = "INSERT INTO Teacher (teacher_ID,name, email, mobile, dob, department) VALUES(@id,@name, @email_ID, @mobile, @dob, @department)";
             try
             {
                 using (con)
                 {
                     using (SqlCommand cmd = new SqlCommand(query))
                     {
+                        cmd.Parameters.AddWithValue("id", id);
                         cmd.Parameters.AddWithValue("@name", name);
                         cmd.Parameters.AddWithValue("@email_ID", email);
                         cmd.Parameters.AddWithValue("@dob", dob);

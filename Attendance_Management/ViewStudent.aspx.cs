@@ -27,11 +27,11 @@
 
             private void LoadSubjects()
             {
-                string str_tid = Session["tid"].ToString();
-                Int32 tid = Int32.Parse(str_tid);
+                //session mathi teacherId & department
+                Int32 tid = Int32.Parse(Session["tid"].ToString());
                 string department = Session["department"].ToString();
-
-                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["attendanceDatabase"].ConnectionString))
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["attendanceDatabase"].ConnectionString); 
+                using (con)
                 {
                     con.Open();
                     string query = "SELECT subject_ID FROM Teaching WHERE teacher_ID = @teacher_ID";
@@ -92,19 +92,22 @@
             dtStudents.Columns.Add("SubjectAttendance", typeof(double));
             dtStudents.Columns.Add("TotalAttendance", typeof(double));
 
-            string str_tid = Session["tid"].ToString();
-            Int32 tid = Int32.Parse(str_tid);
+            Int32 tid = Int32.Parse(Session["tid"].ToString());
             string department = Session["department"].ToString();
+
             int selected_subId = 0;
             int sem = 0;
-
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["attendanceDatabase"].ConnectionString))
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["attendanceDatabase"].ConnectionString);
+            using (con)
             {
+                //student show krva mate subject prthi semester retrieve kari 
+                //je subject teacher e select karyo hase 
                 string query = "SELECT semester, subject_ID FROM Subject WHERE subject_name = (@sub_name)";
                 try
                 {
                     using (SqlCommand cmd = new SqlCommand(query))
                     {
+                        //subjectName is a local var from 'ddlSubject_SelectedIndexChanged'
                         cmd.Parameters.AddWithValue("@sub_name", subjectName);
                         cmd.Connection = con;
                         con.Open();

@@ -52,7 +52,7 @@ namespace Attendance_Management
                 Response.Redirect("Login_teacher.aspx");
                 return;
             }
-
+            //session mathi teahcerId lidhu
             int teacherID = Convert.ToInt32(Session["tid"]);
             string connString = ConfigurationManager.ConnectionStrings["attendanceDatabase"].ConnectionString;
 

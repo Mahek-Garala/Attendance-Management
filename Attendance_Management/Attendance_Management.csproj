@@ -67,7 +67,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AddAttendance.aspx" />
     <Content Include="AddSubject.aspx" />
     <Content Include="App_Data\attendance.mdf" />
     <Content Include="App_Data\attendance_log.ldf">
@@ -79,12 +78,13 @@
     <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="bootstrap\js\jquery-3.7.1.slim.min.js" />
     <Content Include="bootstrap\js\popper.min.js" />
+    <Content Include="DemoLab.aspx" />
+    <Content Include="DemoLecture.aspx" />
     <Content Include="Home_Student.aspx" />
     <Content Include="Home_Teacher.aspx" />
     <Content Include="Login_student.aspx" />
     <Content Include="Login_teacher.aspx" />
     <Content Include="Logout.aspx" />
-    <Content Include="MarkAttendance.aspx" />
     <Content Include="SignUp_student.aspx" />
     <Content Include="SignUp_teacher.aspx" />
     <Content Include="Update_Student.aspx" />
@@ -94,13 +94,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddAttendance.aspx.cs">
-      <DependentUpon>AddAttendance.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AddAttendance.aspx.designer.cs">
-      <DependentUpon>AddAttendance.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AddSubject.aspx.cs">
       <DependentUpon>AddSubject.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -114,6 +107,20 @@
     </Compile>
     <Compile Include="Attendance.aspx.designer.cs">
       <DependentUpon>Attendance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DemoLab.aspx.cs">
+      <DependentUpon>DemoLab.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DemoLab.aspx.designer.cs">
+      <DependentUpon>DemoLab.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DemoLecture.aspx.cs">
+      <DependentUpon>DemoLecture.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DemoLecture.aspx.designer.cs">
+      <DependentUpon>DemoLecture.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home_Student.aspx.cs">
       <DependentUpon>Home_Student.aspx</DependentUpon>
@@ -149,13 +156,6 @@
     </Compile>
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MarkAttendance.aspx.cs">
-      <DependentUpon>MarkAttendance.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MarkAttendance.aspx.designer.cs">
-      <DependentUpon>MarkAttendance.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUp_student.aspx.cs">

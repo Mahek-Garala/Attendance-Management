@@ -33,6 +33,11 @@
         <div class="container">
             <h2 class="text-center">Signup</h2>
             <div class="mb-3">
+                <asp:TextBox runat="server" ID="idTextBox" CssClass="form-control" placeholder="Id" Required="true" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="idTextBox"
+                    Display="Dynamic" ErrorMessage="Id cannot be empty." ForeColor="Red" />
+            </div>
+            <div class="mb-3">
                 <asp:TextBox runat="server" ID="nameTextBox" CssClass="form-control" placeholder="Name" Required="true" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="nameTextBox"
                     Display="Dynamic" ErrorMessage="Name cannot be empty." ForeColor="Red" />
